@@ -18,21 +18,21 @@
                     @endif
                     
                     <div class="form-group row">
-                        <label class="col-md-2">ニックネーム</label>
-                        <div class="col-md-10">
+                        <label class="col-md-3">ニックネーム</label>
+                        <div class="col-md-9">
                             <input type="text" class="form-control" name="nickname" value="{{ old('nickname') }}">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">アイコン</label>
-                        <div class="col-md-10">
+                        <label class="col-md-3">アイコン</label>
+                        <div class="col-md-9">
                             <input type="file" class="form-control-file" name="profile_image">
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">次に行きたい都道府県</label>
+                        <label class="col-md-3">次に行きたい都道府県</label>
                         <div class="col-md-3">
                             <select class="form-control" name="prefecture">
                                 <option value="">選択してください</option>
@@ -88,7 +88,7 @@
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">好きなジャンル</label>
+                        <label class="col-md-3">好きなジャンル</label>
                         <div class="col-md-3">
                             <select class="form-control" name="category">
                                 <option value="">選択してください</option>
@@ -98,21 +98,20 @@
                                 <option value="gourmet">グルメ</option>
                                 <option value="activity">アクティビティ</option>
                                 <option value="shopping">買い物・お土産</option>
-                                <option value="other">その他</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-2">自己紹介</label>
-                        <div class="col-md-10">
+                        <label class="col-md-3">自己紹介</label>
+                        <div class="col-md-9">
                             <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-2">公開範囲</label>
-                        <div class="col-md-10">
+                        <label class="col-md-3">公開範囲</label>
+                        <div class="col-md-9">
                             <p class="mb-0">自分の旅行記録を</p>
                             <span class="mr-2"><input type="radio" name="role" value="contrib">公開する</span>
                             <span class="mr-2"><input type="radio" name="role" value="subsc">非公開にする</span>
@@ -120,7 +119,7 @@
                     </div>
                     
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary col-md-2 mr-2" value="投稿">
+                    <input type="submit" class="btn btn-primary col-md-2 mr-2" value="登録">
                     <input type="reset" class="btn btn-light col-md-2" value="クリア">
                 </form>
             </div>
