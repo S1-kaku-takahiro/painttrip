@@ -102,7 +102,9 @@ window.onload = function () {
 function changeCategory() {
   var changedCategory = category.value;
 
-  if (changedCategory == "accommodation") {
+  if (!changedCategory) {
+    resetSubcategory();
+  } else if (changedCategory == "accommodation") {
     setAccommodation();
   } else if (changedCategory == "sightseeing") {
     setSightseeing();
@@ -117,6 +119,14 @@ function changeCategory() {
   } else if (changedCategory == "other") {
     setOther();
   }
+}
+
+function resetSubcategory() {
+  subcategory.textContent = null;
+  var op = document.createElement("option");
+  op.value = "";
+  op.text = "選択してください";
+  subcategory.appendChild(op);
 }
 
 function setAccommodation() {
@@ -360,17 +370,11 @@ function setShopping() {
 }
 
 function setOther() {
-  subcategory.textContent = "52";
-  var others = [{
-    cd: "52",
-    label: "その他"
-  }];
-  others.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  subcategory.textContent = null;
+  var op = document.createElement("option");
+  op.value = "52";
+  op.text = "その他";
+  subcategory.appendChild(op);
 }
 
 /***/ }),

@@ -18,6 +18,8 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/contrib.css') }}" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        
+        
     </head>
     <body>
         <div id="app">
@@ -67,6 +69,7 @@
             <main class="py-4">
                 @yield('content')
             </main>
+            
         </div>
     </body>
 </html>

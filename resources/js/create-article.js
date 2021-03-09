@@ -12,7 +12,9 @@ function changeCategory() {
 
   var changedCategory = category.value;
 
-  if (changedCategory == "accommodation") {
+  if (!changedCategory) {
+    resetSubcategory();
+  }else if (changedCategory == "accommodation") {
 
     setAccommodation();
 
@@ -42,6 +44,18 @@ function changeCategory() {
 
   }
 
+}
+
+function resetSubcategory() {
+  subcategory.textContent = null;
+  
+  var op = document.createElement("option");
+
+  op.value = "";
+
+  op.text = "選択してください";
+
+  subcategory.appendChild(op);
 }
 
 function setAccommodation() {
@@ -77,7 +91,7 @@ function setAccommodation() {
     var op = document.createElement("option");
 
     op.value = value.cd;
-
+    
     op.text = value.label;
 
     subcategory.appendChild(op);
@@ -293,23 +307,13 @@ function setShopping() {
 
 function setOther() {
 
-    subcategory.textContent = "52";
+  subcategory.textContent = null;
 
-    var others = [
+  var op = document.createElement("option");
 
-        {cd:"52", label:"その他"},
+  op.value = "52";
 
-    ];
+  op.text = "その他";
 
-  others.forEach(function(value) {
-
-    var op = document.createElement("option");
-
-    op.value = value.cd;
-
-    op.text = value.label;
-
-    subcategory.appendChild(op);
-
-  });
+  subcategory.appendChild(op);
 }
