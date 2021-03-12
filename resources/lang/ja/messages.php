@@ -5,4 +5,6 @@ return [
     'E-Mail Address' => 'メールアドレス',
     'Password' => 'パスワード',
     'Remember Me' => 'ログイン情報を記憶する',
+    
+    'spa' => '温泉'
 ];

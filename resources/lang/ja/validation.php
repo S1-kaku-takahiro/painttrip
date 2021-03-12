@@ -77,9 +77,9 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => ':attribute は :max 以下のみ有効です',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
-        'string' => 'The :attribute may not be greater than :max characters.',
+        'string' => ':attribute は :max 文字以下のみ有効です',
         'array' => 'The :attribute may not have more than :max items.',
     ],
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -107,7 +107,7 @@ return [
     'size' => [
         'numeric' => 'The :attribute must be :size.',
         'file' => 'The :attribute must be :size kilobytes.',
-        'string' => 'The :attribute must be :size characters.',
+        'string' => ':attribute は :size 文字のみ有効です',
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
@@ -154,7 +154,13 @@ return [
         'subcategory' => 'ジャンル名',
         'impression' => '感想',
         'expence' => '一人分のおおよその費用',
-        'disclosure' => '公開設定'
+        'disclosure' => '公開設定',
+        
+        'role' => '公開範囲',
+        'nickname' => 'ニックネーム',
+        'next_prefecture' => '次に行きたい都道府県',
+        'favorite_category' => 'お気に入りのジャンル',
+        'introduction' => '自己紹介'
     ],
     
 ];

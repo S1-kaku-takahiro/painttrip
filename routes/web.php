@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'contrib', 'middleware' => 'auth'], function() {
     Route::get('article/create', 'Contrib\ArticleController@add');
     Route::post('article/create', 'Contrib\ArticleController@create');
+    Route::get('article/show', 'Contrib\ArticleController@show');
     
     Route::get('profile/create', 'Contrib\ProfileController@add');
     Route::post('profile/create', 'Contrib\ProfileController@create');
