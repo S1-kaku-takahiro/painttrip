@@ -93,288 +93,259 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+var category = document.getElementById("category");
+var subcategory = document.getElementById("subcategory");
+category.onchange = changeCategory;
+subcategory.onchange = changeSubcategory;
+
 window.onload = function () {
-  subcategory = document.getElementById("subcategory");
-  category = document.getElementById("category");
-  category.onchange = changeCategory;
+  changeCategory();
+  subcategory.value = $('input:hidden[name="hiddenSubcategory"]').val();
 };
 
 function changeCategory() {
-  var changedCategory = category.value;
-
-  if (!changedCategory) {
-    resetSubcategory();
-  } else if (changedCategory == "accommodation") {
-    setAccommodation();
-  } else if (changedCategory == "sightseeing") {
-    setSightseeing();
-  } else if (changedCategory == "spa") {
-    setSpa();
-  } else if (changedCategory == "gourmet") {
-    setGourmet();
-  } else if (changedCategory == "activity") {
-    setActivity();
-  } else if (changedCategory == "shopping") {
-    setShopping();
-  } else if (changedCategory == "other") {
-    setOther();
-  }
-}
-
-function resetSubcategory() {
+  var option = document.createElement("option");
+  option.value = "";
+  option.text = "選択してください";
   subcategory.textContent = null;
-  var op = document.createElement("option");
-  op.value = "";
-  op.text = "選択してください";
-  subcategory.appendChild(op);
-}
+  subcategory.appendChild(option);
+  var options;
+
+  switch (category.value) {
+    case "1":
+      options = setAccommodation();
+      break;
+
+    case "2":
+      options = setSightseeing();
+      break;
+
+    case "3":
+      options = setSpa();
+      break;
+
+    case "4":
+      options = setGourmet();
+      break;
+
+    case "5":
+      options = setActivity();
+      break;
+
+    case "6":
+      options = setShopping();
+      break;
+
+    case "7":
+      options = setOther();
+      break;
+  }
+
+  options.forEach(function (value) {
+    var option = document.createElement("option");
+    option.value = value.cd;
+    option.text = value.label;
+    subcategory.appendChild(option);
+  });
+} // サブカテゴリーを3桁の整数で割り振る
+
 
 function setAccommodation() {
-  subcategory.textContent = null;
   var accomodations = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "0",
+    cd: "101",
     label: "ホテル"
   }, {
-    cd: "1",
+    cd: "102",
     label: "旅館"
   }, {
-    cd: "2",
+    cd: "103",
     label: "ビジネスホテル"
   }, {
-    cd: "3",
+    cd: "104",
     label: "民宿"
   }, {
-    cd: "4",
+    cd: "105",
     label: "ゲストハウス"
   }, {
-    cd: "5",
+    cd: "106",
     label: "カプセルホテル"
   }, {
-    cd: "6",
+    cd: "107",
     label: "ペンション"
   }, {
-    cd: "7",
+    cd: "108",
     label: "キャンプ"
   }, {
-    cd: "8",
+    cd: "109",
     label: "その他宿泊"
   }];
-  accomodations.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return accomodations;
 }
 
 function setSightseeing() {
-  subcategory.textContent = null;
   var sightseeings = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "9",
+    cd: "201",
     label: "神社・お寺"
   }, {
-    cd: "10",
+    cd: "202",
     label: "城"
   }, {
-    cd: "11",
+    cd: "203",
     label: "水族館"
   }, {
-    cd: "12",
+    cd: "204",
     label: "動物園"
   }, {
-    cd: "13",
+    cd: "205",
     label: "遊園地"
   }, {
-    cd: "14",
+    cd: "206",
     label: "美術館"
   }, {
-    cd: "15",
+    cd: "207",
     label: "博物館"
   }, {
-    cd: "16",
+    cd: "208",
     label: "その他観光"
   }];
-  sightseeings.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return sightseeings;
 }
 
 function setSpa() {
-  subcategory.textContent = null;
   var spas = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "17",
+    cd: "301",
     label: "温泉"
   }, {
-    cd: "18",
+    cd: "302",
     label: "スパ"
   }, {
-    cd: "19",
+    cd: "303",
     label: "銭湯"
   }, {
-    cd: "20",
+    cd: "304",
     label: "サウナ"
   }, {
-    cd: "21",
+    cd: "305",
     label: "岩盤浴"
   }, {
-    cd: "22",
+    cd: "306",
     label: "その他温泉・スパ"
   }];
-  spas.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return spas;
 }
 
 function setGourmet() {
-  subcategory.textContent = null;
   var gourmets = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "23",
+    cd: "401",
     label: "フレンチ"
   }, {
-    cd: "24",
+    cd: "402",
     label: "イタリアン"
   }, {
-    cd: "25",
+    cd: "403",
     label: "スペイン料理"
   }, {
-    cd: "26",
+    cd: "404",
     label: "中華料理"
   }, {
-    cd: "27",
+    cd: "405",
     label: "韓国料理"
   }, {
-    cd: "28",
+    cd: "406",
     label: "アジア・エスニック"
   }, {
-    cd: "29",
+    cd: "407",
     label: "和食"
   }, {
-    cd: "30",
+    cd: "408",
     label: "寿司"
   }, {
-    cd: "31",
+    cd: "409",
     label: "焼肉"
   }, {
-    cd: "32",
+    cd: "410",
     label: "鍋"
   }, {
-    cd: "33",
+    cd: "410",
     label: "天ぷら"
   }, {
-    cd: "34",
+    cd: "412",
     label: "ラーメン"
   }, {
-    cd: "35",
+    cd: "413",
     label: "カレー"
   }, {
-    cd: "36",
+    cd: "414",
     label: "ビュッフェ"
   }, {
-    cd: "37",
+    cd: "415",
     label: "バー"
   }, {
-    cd: "38",
+    cd: "416",
     label: "カフェ"
   }, {
-    cd: "39",
+    cd: "417",
     label: "その他グルメ"
   }];
-  gourmets.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return gourmets;
 }
 
 function setActivity() {
-  subcategory.textContent = null;
   var activities = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "40",
+    cd: "501",
     label: "川・湖"
   }, {
-    cd: "41",
+    cd: "502",
     label: "マリンスポーツ"
   }, {
-    cd: "42",
+    cd: "503",
     label: "スカイスポーツ"
   }, {
-    cd: "43",
+    cd: "504",
     label: "大地・山"
   }, {
-    cd: "44",
+    cd: "505",
     label: "ウィンタースポーツ"
   }, {
-    cd: "45",
+    cd: "506",
     label: "その他アクティビティ"
   }];
-  activities.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return activities;
 }
 
 function setShopping() {
-  subcategory.textContent = null;
   var shoppings = [{
-    cd: "",
-    label: "選択してください"
-  }, {
-    cd: "46",
+    cd: "601",
     label: "雑貨"
   }, {
-    cd: "47",
+    cd: "602",
     label: "ファッション"
   }, {
-    cd: "48",
+    cd: "603",
     label: "お菓子"
   }, {
-    cd: "49",
+    cd: "604",
     label: "食べ物"
   }, {
-    cd: "50",
+    cd: "605",
     label: "お酒"
   }, {
-    cd: "51",
+    cd: "606",
     label: "その他買い物"
   }];
-  shoppings.forEach(function (value) {
-    var op = document.createElement("option");
-    op.value = value.cd;
-    op.text = value.label;
-    subcategory.appendChild(op);
-  });
+  return shoppings;
 }
 
 function setOther() {
-  subcategory.textContent = null;
-  var op = document.createElement("option");
-  op.value = "52";
-  op.text = "その他";
-  subcategory.appendChild(op);
+  var others = [{
+    cd: "701",
+    label: "その他"
+  }];
+  return others;
+}
+
+function changeSubcategory() {
+  document.getElementById("hiddenSubcategory").setAttribute("value", subcategory.value);
 }
 
 /***/ }),

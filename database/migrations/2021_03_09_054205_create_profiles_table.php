@@ -16,12 +16,13 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->string('role');
-            $table->string('nickname');
-            $table->string('profile_image_path')->nullable();
-            $table->string('next_prefecture');
-            $table->string('favorite_category');
+            $table->integer('role');
+            $table->string('name');
+            $table->string('image_path')->nullable();
+            $table->integer('next_prefecture');
+            $table->integer('favorite_category');
             $table->string('introduction');
+            // 公開、非公開のカラムを用意する
             $table->timestamps();
         });
     }

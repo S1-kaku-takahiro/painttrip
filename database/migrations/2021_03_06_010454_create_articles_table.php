@@ -19,15 +19,15 @@ class CreateArticlesTable extends Migration
             $table->string('spot_name');
             $table->string('image_path')->nullable();
             $table->date('visited_on');
-            $table->string('prefecture');
-            $table->string('category');
-            $table->string('subcategory');
+            $table->integer('prefecture');
+            $table->integer('category');
+            $table->integer('subcategory');
             $table->string('impression');
-            $table->string('congestion');
+            $table->integer('congestion');
             $table->integer('expence');
             $table->string('nearest_station')->nullable();
-            $table->string('parking')->nullable();
-            $table->string('disclosure');
+            $table->integer('parking')->nullable();
+            $table->integer('disclosure');
             $table->timestamps();
         });
     }

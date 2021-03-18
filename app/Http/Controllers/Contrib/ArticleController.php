@@ -9,17 +9,28 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Article;
 use App\Profile;
+use App\Prefecture;
+use App\Category;
 
 class ArticleController extends Controller
 {
+    
     public function add()
     {
-        return view('contrib.article.create');
+        $categories[1] = "ホテル・旅館";
+        $categories[2] = "観光・レジャー";
+        $categories[3] = "温泉・スパ";
+        $categories[4] = "グルメ・レストラン";
+        $categories[5] = "アクティビティ";
+        $categories[6] = "買い物・お土産";
+        $categories[7] = "その他";
+
+        return view('contrib.article.create', ['prefectures' => Prefecture::all(), 'categories' => $categories]);
     }
     
     public function create(Request $request)
     {
-        
+
         $this->validate($request, Article::$rules);
         
         $article = new Article;
@@ -51,6 +62,5 @@ class ArticleController extends Controller
         }
         
         $profile = Profile::where('user_id', $article->user_id)->first();
-        return view('contrib.article.show', ['article' => $article, 'profile' => $profile]);
     }
 }
